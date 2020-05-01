@@ -18,6 +18,7 @@ public class BrowserLaunch {
 
     public static void main(String[] args) {
         // set the system property with chromedriver executable file path
+        // eg path in windows pc: F://selenium//softwares//drivers//chromedriver.exe
         System.setProperty("webdriver.chrome.driver", "/Users/suryaprakash/Documents/softwares/chromedriver");
         // open chrome browser
         ChromeDriver cdriver = new ChromeDriver();
