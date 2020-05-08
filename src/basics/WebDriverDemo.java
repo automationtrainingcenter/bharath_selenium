@@ -3,6 +3,7 @@ package basics;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import utilities.BrowserUtility;
 
 /*
 WebDriver is an interface in Selenium. this is the main interface.
@@ -21,7 +22,8 @@ public class WebDriverDemo {
     public static void main(String[] args) throws InterruptedException {
 
         // launch the chrome browser
-        System.setProperty("webdriver.chrome.driver", "/Users/suryaprakash/Documents/softwares/chromedriver");
+//        System.setProperty("webdriver.chrome.driver", "/Users/suryaprakash/Documents/softwares/chromedriver");
+        BrowserUtility.setDriverPath("chromedriver");
         WebDriver driver = new ChromeDriver();
         // navigate to a google url
         driver.get("http://www.google.com");
@@ -30,16 +32,14 @@ public class WebDriverDemo {
         driver.close();
 
         // launch firefox browser
-        System.setProperty("webdriver.gecko.driver", "/Users/suryaprakash/Documents/softwares/geckodriver");
+//        System.setProperty("webdriver.gecko.driver", "/Users/suryaprakash/Documents/softwares/geckodriver");
+        BrowserUtility.setDriverPath("geckodriver");
         driver = new FirefoxDriver();
         // navigate to facebook url
         driver.get("http://www.facebook.com");
         Thread.sleep(5000);
         // close firefox browser
         driver.close();
-
-
-
     }
 
 }

@@ -1,1 +1,4 @@
 *.class
+/drivers/geckodriver
+/drivers/chromedriver
+*.exe
