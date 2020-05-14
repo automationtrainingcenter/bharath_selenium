@@ -1,5 +1,13 @@
 package basics;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import utilities.BrowserUtility;
+
+import java.util.List;
+
 /*
 By class methods or Locating Techniques of selenium
 
@@ -74,6 +82,57 @@ className() argument
 name of the tag.
  */
 public class LocatingTechniques {
+
+    public static void main(String[] args) {
+        // launch browser
+        BrowserUtility.setDriverPath("chromedriver");
+        WebDriver driver = new ChromeDriver();
+        // navigate to a url
+        driver.get("http://www.facebook.com");
+        // maximize the browser window
+        driver.manage().window().maximize();
+
+
+        // id(String idAttValue): locates an element using id attribute value
+        By txtEmailId = By.id("email");
+        WebElement txtEmail = driver.findElement(txtEmailId);
+//        WebElement txtEmail = driver.findElement(By.id("email"));
+
+        // name(String nameAttValue): locates an element using name attribute value
+        By txtFNameName = By.name("firstname");
+        WebElement txtFName = driver.findElement(txtFNameName);
+
+        // linkText(String linkText): locates a link using it's inner text
+        By lnkForgottenAccLinkText = By.linkText("Forgotten account?");
+        WebElement lnkForgottenAcc = driver.findElement(lnkForgottenAccLinkText);
+
+        // partialLinkText(String partOfTheLinkText): locates a link using part of it's inner text
+        By lnkCookiePolicyParLnkTxt = By.partialLinkText("Cookie");
+        WebElement lnkCookiePolicy = driver.findElement(lnkCookiePolicyParLnkTxt);
+
+        // cssSelector(String cssSelector): locates an element using any attribute and it's value
+        // syntax: tagName[attName = 'attValue']
+        By rbtnFemaleCss = By.cssSelector("input[value='1']");
+        WebElement rBtnFemale = driver.findElement(rbtnFemaleCss);
+
+        // xpath(String xpath): locates an element using any attribute and it's value
+        // syntax: //tagName[@attName = 'attValue']
+        By rbtnMaleXpath = By.xpath("//input[@value='2']");
+        WebElement rBtnMale = driver.findElement(rbtnMaleXpath);
+
+        // className(String nameOfaClass): locates zero or more elements using name of class
+        By inputtextClsName = By.className("inputtext");
+        List<WebElement> txtInputs = driver.findElements(inputtextClsName);
+        System.out.println("number of text boxes :: "+txtInputs.size());
+
+        //tagName(String nameOfTag): locates zero or more elements using name of the tag
+        By aTag = By.tagName("a");
+        List<WebElement> links = driver.findElements(aTag);
+        System.out.println("number of links :: "+links.size());
+
+        // close brosers
+        driver.close();
+    }
 
 
 
